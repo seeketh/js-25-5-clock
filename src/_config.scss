@@ -1,0 +1,45 @@
+/* Common or Reusable CSS resides here */
+
+/* App container */
+$container-width: 100vw;
+$container-height: 100vh;
+$container-background-color: white;
+
+/* Basics */
+$full: 100%;
+
+/* Reusable Flex box */
+@mixin flex-box($direction, $wrap, $x, $y, $style, $size, $color, $radius) {
+    display: flex;
+    flex-flow: $direction $wrap;
+
+    @if $direction == column {
+        justify-content: $y;
+        align-items: $x;
+    }
+    @else if $direction == row {
+        justify-content: $x;
+        align-items: $y;
+    }
+
+    @if $style != none {
+        border: $size $style $color;
+        border-radius: $radius;
+    }
+    @else if $style == none {
+        border: none;
+    }
+}
+
+/* Clock canvas*/
+$clock-width: 320px;
+$calucator-height: 420px; /* computed to 410px */
+$clock-background-color: rgba(242, 242, 242, 1);
+$clock-border-style: solid;
+$clock-border-radius: 80px;
+$clock-border-size: 4px;
+$clock-border-color: gray;
+
+$clock-inner-padding: 20px;
+
+$btn-cursor: pointer;

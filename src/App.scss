@@ -1,0 +1,188 @@
+/* Clock frame styling */
+
+@import './config';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.container {
+    width: $container-width;
+    height: $container-height;
+    background-color: $container-background-color;
+
+    @include flex-box(column, nowrap, center, center, none, none, none, 0);
+}
+
+.user-select-none {
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+
+}
+
+.clock-box {
+    padding-right: 15px;
+    @include flex-box(row, nowrap, center, center, $clock-border-style, $clock-border-size, $clock-border-color, $clock-border-radius);
+}
+
+.display-box {
+    @include flex-box(column, nowrap, center, center, none, none, none, 0);
+    padding: $clock-inner-padding;
+}
+
+.settings-box {
+    @include flex-box(column, nowrap, flex-end, center, none, none, none, 0);
+    padding: $clock-inner-padding;
+}
+
+.title-box {
+    @include flex-box(row, nowrap, center,center, none, 1px, brown, 0);
+    width: $full;
+}
+
+.session-title {
+    @include flex-box(row, nowrap, center, center, none, 1px, red, 0);
+}
+
+.session-text-active {
+    letter-spacing: 0.9em;
+    text-transform: uppercase;
+    @extend .user-select-none;
+}
+
+.session-text-inactive {
+    @extend .session-text-active;
+    opacity: .1;
+    @extend .user-select-none;
+}
+
+.session-icon-inactive {
+    height: 1em;
+    width: 1em;
+    margin: 0 1em;
+}
+
+.session-icon-active {
+    @extend .session-icon-inactive;
+    color: indianred;
+    animation: blink-animation 4s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.session-text {
+    margin: 0 1em;
+}
+
+.count-box {
+    width: 280px;
+    margin-top: 12px;
+    background-image: linear-gradient(60deg, #acc1bf, #9cb5b2);
+    @include flex-box(row, nowrap, flex-start, center, solid, 2px, #53777c,15px);
+}
+
+.count-text {
+    font-size: 3.1em;
+    width: $full;
+    color: rgba($color: #000000, $alpha: 0.8);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.inner-count-text {
+    margin-left: 36px;
+    letter-spacing: 0.2em;
+    @extend .user-select-none;
+}
+
+.control-box {
+    @include flex-box(row, nowrap, center, center, none, 1px, #53777c, 0);
+    margin-top: 20px;
+}
+
+.control-icon {
+    height: 1.5em;
+    width: auto;
+    cursor: $btn-cursor;
+}
+
+.play-btn {
+   @extend .control-icon;
+   color: #8d8888;
+   margin-right: 0.7em;
+}
+
+/* Expands clickable region for the controll button */
+.reset-box {
+    cursor: $btn-cursor;
+}
+.reset-btn {
+    @extend .control-icon;
+    color: #b62424;
+}
+
+.increment-btn:hover {
+    opacity: 0.5;
+}
+
+.decrement-btn:hover {
+    opacity: 0.5;
+}
+
+.settings-icon {
+    height: 1.5em;
+    width: auto;
+    opacity: 0.6;
+    cursor: $btn-cursor;
+}
+
+.increment-icon {
+    @extend .settings-icon;
+    color: #b82424;
+}
+
+.decrement-icon {
+    @extend .settings-icon;
+}
+
+.settings-btn {
+    @include flex-box(column, nowrap, flex-end, center, none, 0, none, 0);
+    margin-top: 12px;
+}
+
+.btn-title {
+    opacity: 0.8; /* remove me? */
+}
+
+.btn-controls {
+    @include flex-box(row, nowrap, center, center, none, none, none, 0);
+    margin-top: 1px;
+}
+
+.settings-title-box {
+    opacity: 0.7; /* remove me? */
+}
+
+.settings-title-text {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.83em;
+    @extend .user-select-none;
+
+}
+
+.settings-count {
+    width: 42px;
+    height: 23px;
+    margin-top: 5px;
+    opacity: 0.4;
+    @include flex-box(row, nowrap, center, center, solid, 0.15em, #090b0a, 5px);
+}
+
+.settings-count-text {
+    font-size: 1.2em;
+    @extend .user-select-none;
+}
