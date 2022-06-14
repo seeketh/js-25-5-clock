@@ -1,6 +1,7 @@
 {
   "name": "js-25-5-clock",
   "version": "0.1.0",
+  "author": "Nsubis Genesis",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
